@@ -7,20 +7,20 @@ The table below lists which attributes are available in which states.
 ### api/current
 | Name | Description | Values | States |
 | --- | --- | --- | --- |
-| `Grill temp` | Current Temperature of Grill | `Integer` |
-| `Probe1 temp` | Current Temperature of Probe 1 |  `Integer` |
-| `Probe2 temp` | Current Temperature of Probe 2 |  `Integer` |
-| `Grill` | Grill's Setpoint. Set this to the temperature you want the grill to be. | `Integer` |
-| `Grill notify` | Grill's Notification Setpoint |  `Integer` |
-| `Probe1` | Probe 1's Notification Setpoint |  `Integer` |
-| `Probe2` | Probe 2's Notification Setpoint |  `Integer` |
+| `Grill temp` | Current Temperature of Grill | | `Integer` |
+| `Probe1 temp` | Current Temperature of Probe 1 | |  `Integer` |
+| `Probe2 temp` | Current Temperature of Probe 2 | |  `Integer` |
+| `Grill` | Grill's Setpoint. Set this to the temperature you want the grill to be. | | `Integer` |
+| `Grill notify` | Grill's Notification Setpoint | |  `Integer` |
+| `Probe1` | Probe 1's Notification Setpoint | | `Integer` |
+| `Probe2` | Probe 2's Notification Setpoint | | `Integer` |
 | `Mode` | Grill's Mode | `Stop` `Startup` `Smoke` `Hold` `Shutdown` `Prime` `Monitor` |
-| `Name` | Grill's Friendly Name |  `String` |
-| `Pelletlevel` | Grill's Pellet Level |  `Integer` |
-| `Pellets` | Grill's Pellet Type |  `String` |
-| `S plus` | Is the grill running Smoke Plus? |  `true` `false` |
-| `Status` | Grill's Status |  `active` `null` |
-| `Units` | Grill's Unit |  `F` `C` |
+| `Name` | Grill's Friendly Name | | `String` |
+| `Pelletlevel` | Grill's Pellet Level | | `Integer` |
+| `Pellets` | Grill's Pellet Type | | `String` |
+| `S plus` | Is the grill running Smoke Plus? | | `true` `false` |
+| `Status` | Grill's Status | | `active` `null` |
+| `Units` | Grill's Unit | | `F` `C` |
 
 ### api/control
 | Name | Description | Values | States |
