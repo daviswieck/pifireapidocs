@@ -5,7 +5,7 @@ This is set in the "value_template:" yaml line. It can be anything you want. I l
 The table below lists which attributes are available in which states. 
 
 ### api/current
-| Name | Value | States | Notes |
+| Name | Description | Values | States |
 | --- | --- | --- | --- |
 | `Grill temp` | Current Temperature of Grill | `Integer` |
 | `Probe1 temp` | Current Temperature of Probe 1 |  `Integer` |
@@ -23,28 +23,28 @@ The table below lists which attributes are available in which states.
 | `Units` | Grill's Unit |  `F` `C` |
 
 ### api/control
-| Name | Value | States | Notes |
+| Name | Description | Values | States |
 | --- | --- | --- | --- |
-| `Distance update` | Update Pellet Distance Sensor | `true` `false` |
-| `Duty cycle` | ?????? | `Integer` |
-| `Errors` | ?????? | `string` |
-| `Hopper check` | ????? | `INT` |
-| `Manual` | Manual Control of `auger` `change` `fan` `igniter` `power` `pwm` |  `true` `false` |
-| `Mode` | Grill's Current Mode | `Stop` `Startup` `Smoke` `Hold` `Shutdown` `Prime` `Monitor` |
+| `Distance update` | Update Pellet Distance Sensor | | `true` `false` |
+| `Duty cycle` | ?????? | | `Integer` |
+| `Errors` | ?????? | | `string` |
+| `Hopper check` | ????? | | `INT` |
+| `Manual` | Manual Control of | `auger` `change` `fan` `igniter` `power` `pwm` |  `true` `false` |
+| `Mode` | Grill's Current Mode | `Stop` `Startup` `Smoke` `Hold` `Shutdown` `Prime` `Monitor` | |
 | `Next Mode` | Grill's Next Mode | `Stop` `Startup` `Smoke` `Hold` `Shutdown` `Prime` `Monitor` |
-| `Notify Data` | Change what the grill does when setpoints is reached `hopper_low` `p1_keep_warm` `p1_shutdown` `p2_keep_warm` `p2_shutdown` `timer_keep_warn` `timer_shutdown` |  `true` `false` |
-| `Notify req` | Notification request `grill` `probe1` `probe2` `timer` |  `true` `false` |
-| `Prime amount` | Amount of Pellets you want to prime in grams |  `Integer` |
-| `Probe profile update` | ?????? |  `true` `false` |
-| `PWM control` | ????????? |  `true` `false` |
-| `Recipe` | Current Recipe |  `` `null` |
-| `S plus` | Is the grill running Smoke Plus? |  `true` `false` |  |
-| `Safety` | `afterstarttemp` `reignitelaststate` `reigniteretries` `startuptemp` |  `INT` |
-| `Setpoints` | Change this to change set point `grill` `grill_notify` `probe1` `probe2` |  `Integer` |
-| `Settings update` | ???????? |  `true` `false` |
-| `Smartstart` | ??????? `profile_selected` `startuptemp` |  `integer` |
-| `Status` | ????????? |  `null` |
-| `Timer` | Grill's Timer `end` `paused` `shutdown` `start` |  `Integer` |
-| `Tuning mode` | ???????? |  `true` `false` |
-| `Units change` | ????????? |  `true` `false` |
-| `Updated` | A check to see if mode has changed |  `true` `false` |
+| `Notify Data` | Change what the grill does when setpoints is reached | `hopper_low` `p1_keep_warm` `p1_shutdown` `p2_keep_warm` `p2_shutdown` `timer_keep_warn` `timer_shutdown` |  `true` `false` |
+| `Notify req` | Notification request | `grill` `probe1` `probe2` `timer` |  `true` `false` |
+| `Prime amount` | Amount of Pellets you want to prime in grams | | `Integer` | 
+| `Probe profile update` | ?????? | | `true` `false` |
+| `PWM control` | ????????? | | `true` `false` |
+| `Recipe` | Current Recipe | | `` `null` |
+| `S plus` | Is the grill running Smoke Plus? | | `true` `false` |  
+| `Safety` | | `afterstarttemp` `reignitelaststate` `reigniteretries` `startuptemp` |  `Integer` |
+| `Setpoints` | Change this to change set point | `grill` `grill_notify` `probe1` `probe2` |  `Integer` |
+| `Settings update` | ???????? | |  `true` `false` |
+| `Smartstart` | ??????? | `profile_selected` `startuptemp` |  `integer` |
+| `Status` | ????????? | |  `null` |
+| `Timer` | Grill's Timer | `end` `paused` `shutdown` `start` | | `Integer` |
+| `Tuning mode` | ???????? | | `true` `false` |
+| `Units change` | ????????? |  | `true` `false` |
+| `Updated` | A check to see if mode has changed | | `true` `false` |
