@@ -9,7 +9,7 @@ homeassistant:
 ## Second
 Click on Settings->Devices & Services->Helpers(on the top tab)
 
-Create the helpers included in the ./helpers.md folder
+Create the helpers included in the ![Helpers](./helpers.md) folder
 
 ## Third
 Go back to File editor, navigate to your packages folder, and create the following two yaml's
@@ -21,7 +21,7 @@ pifire_control.yaml
 Restart you HA instance and confirm your sensors have been properly created
 
 ## Fourth
-Create the automations included in the ./automations.md folder
+Create the automations included in the ![Automations](./automations.md) folder
 
 # API Info and States
 ### State
