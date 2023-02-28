@@ -1,0 +1,93 @@
+rest_command:
+    grilltempup:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "setpoints" : { "grill" : {{states('sensor.grillup')}} } }
+            
+    grilltempdown:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "setpoints" : { "grill" : {{states('sensor.grilldown')}} } }
+    grillstartup:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "updated" : true, "mode" :  "Startup", "setpoints" : {"grill" : 200 } }
+    grillshutdown:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "updated" : true, "mode" :  "Shutdown" }
+            
+    grillsmoke:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "updated" : true, "mode" :  "Smoke" }
+            
+    grillsettemp:
+       url: http://192.168.11.157/api/control
+       method: POST
+       content_type: application/json
+       payload: >
+            { "setpoints" : {"grill" : {{states('input_select.grill_temp_setpoint')}} } }
+            
+    grillholdtemp:
+       url: http://192.168.11.157/api/control
+       method: POST
+       content_type: application/json
+       payload: >
+            { "updated" : true, "mode" : "Hold", "setpoints" : { "grill" : {{states('input_select.grill_temp_setpoint')}} } }
+            
+    grillmodeandtemp:
+       url: http://192.168.11.157/api/control
+       method: POST
+       content_type: application/json
+       payload: |
+            {% if is_state('input_select.grill_mode_select', 'Prime') %}
+               { "updated" : true, "mode" : "Prime", "next_mode" : "Startup", "setpoints" : { "grill" : {{states('input_select.grill_temp_setpoint')}} } }
+            {% else %}
+               { "updated" : true, "mode" : "{{states('input_select.grill_mode_select')}}", "setpoints" : { "grill" : {{states('input_select.grill_temp_setpoint')}} } }
+            {% endif %}
+       
+    grillprimeonly:
+       url: http://192.168.11.157/api/control
+       method: POST
+       content_type: application/json
+       payload: >
+               { "updated" : true, "mode" : "Prime", "prime_amount" : {{states('input_select.prime_amount')}} }
+               
+    grillprimeandstartup:
+       url: http://192.168.11.157/api/control
+       method: POST
+       content_type: application/json
+       payload: >
+               { "updated" : true, "mode" : "Prime", "prime_amount" : {{states('input_select.prime_amount')}}, "next_mode" : "Startup" }
+            
+    grillstop:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "updated" : true, "mode" :  "Stop" }
+            
+    stopsmokeplus:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "s_plus" :  "False" }
+            
+    startsmokeplus:
+        url: http://192.168.11.157/api/control
+        method: POST
+        content_type: application/json
+        payload: >
+            { "s_plus" :  "True" }
