@@ -14,9 +14,11 @@ Create the helpers included in the ![Helpers](./helpers.md) folder
 ## Third
 Go back to File editor, navigate to your packages folder, and create the following two yaml's
 
-pifire.yaml
+pifire.yaml ![Import Data as Sensor](./yamls/pifire.yaml)
 
-pifire_control.yaml
+pifire_control.yaml ![Control Data](./yamls/pifire_controls.yaml)
+
+In this file, be sure to change your IP address to whatever your Pifire instance is. 
 
 Restart you HA instance and confirm your sensors have been properly created
 
