@@ -1,0 +1,209 @@
+#### PIFIRE ###
+
+### Import Data ###
+rest: 
+### CURRENT INFO ###
+  - resource: http://192.168.11.157/api/current
+    scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
+    sensor: 
+      - name: "Current Temperature"
+        unique_id: current_temperature
+        value_template: "{{ state_attr('sensor.current_temperature', 'grill_temp') }}" #can be whatever you want
+        json_attributes_path: "$.current"
+        json_attributes:
+         - "grill_temp"
+         - "probe1_temp"
+         - "probe2_temp"
+      - name: "Current Setpoints"
+        unique_id: current_setpoints
+        value_template: "{{ state_attr('sensor.current_setpoints', 'grill') }}"
+        json_attributes_path: "$.setpoints"
+        json_attributes: 
+         - "grill"
+         - "grill_notify"
+         - "probe1"
+         - "probe2"
+      - name: "Current Status"
+        unique_id: current_status
+        value_template: "{{ state_attr('sensor.current_status', 'mode') }}"
+        json_attributes_path: "$.status"
+        json_attributes:
+         - "mode"
+         - "name"
+         - "pelletlevel"
+         - "pellets"
+         - "s_plus"
+         - "status"
+         - "units"
+
+### CONTROL INFO ###
+  - resource: http://192.168.11.157/api/control
+    scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
+    sensor: 
+      - name: "Control"
+        unique_id: control
+        value_template: "OK"
+        json_attributes_path: "$.control"
+        json_attributes:
+         - "distance_update"
+         - "duty_cycle"
+         - "errors"
+         - "hopper_check"
+         - "manual"
+         - "mode"
+         - "next_mode"
+         - "notify_data"
+         - "notify_req"
+         - "prime_amount"
+         - "probe_profile_update"
+         - "pwm_control"
+         - "recipe"
+         - "s_plus"
+         - "safety"
+         - "setpoints"
+         - "settings_update"
+         - "s_plus"
+         - "safety"
+         - "setpoints"
+         - "smartstart"
+         - "status"
+         - "timer"
+         - "tuning_mode"
+         - "units_change"
+         - "updated"
+### SETTINGS INFO ###
+  - resource: http://192.168.11.157/api/settings
+    scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
+    sensor: 
+      - name: "Settings"
+        unique_id: settings
+        value_template: "OK"
+        json_attributes_path: "$.settings"
+        json_attributes:
+         - "apprise"
+         - "cycle_data"
+         - "dashboard"
+         - "dev_pins"
+         - "globals"
+         - "grill_probe_settings"
+         - "history_page"
+         - "ifttt"
+         - "influxdb"
+         - "inpins"
+         - "keep_warm"
+         - "lastupdated"
+         - "modules"
+         - "onesignal"
+         - "outpins"
+         - "pelletlevel"
+         - "probe_settings"
+         - "probe_types"
+         - "pushbullet"
+         - "pushover"
+         - "pwm"
+         - "safety"
+         - "smartstart"
+         - "smoke_plus"
+         - "start_to_mode"
+         - "versions"     
+         
+### Parse data into how you like
+template:
+  - sensor: 
+         -  name: "Grill Temp"
+            unique_id: grill_temp
+            state: "{{ state_attr('sensor.current_temperature', 'grill_temp') }}"
+            device_class: temperature
+            unit_of_measurement: °F
+  - sensor: 
+         -  name: "Probe 1 Temp"
+            unique_id: probe1_temp
+            state: "{{ state_attr('sensor.current_temperature', 'probe1_temp') }}"
+            unit_of_measurement: °F
+            device_class: temperature
+
+         -  name: "Probe 2 Temp"
+            unique_id: probe2_temp
+            state: "{{ state_attr('sensor.current_temperature', 'probe2_temp') }}"
+            unit_of_measurement: °F
+            device_class: temperature
+
+         -  name: "Grill Setpoint"
+            unique_id: grill_setpoint
+            state: "{{ state_attr('sensor.control', 'setpoints')['grill'] }}"
+            unit_of_measurement: °F
+            device_class: temperature
+            
+         -  name: "Probe 1 Setpoint"
+            unique_id: probe1_setpoint
+            state: "{{ state_attr('sensor.control', 'setpoints')['probe1'] }}"
+            unit_of_measurement: °F
+            device_class: temperature
+            
+         -  name: "Probe 2 Setpoint"
+            unique_id: probe2_setpoint
+            state: "{{ state_attr('sensor.control', 'setpoints')['probe2'] }}"
+            unit_of_measurement: °F
+            device_class: temperature
+            
+         -  name: "Smoke Plus"
+            unique_id: smoke_plus
+            state: "{{ state_attr('sensor.current_status', 's_plus') }}"
+            icon: |
+                {% if is_state('sensor.smoke_plus', 'True') %}
+                    mdi:cloud-plus
+                {% else %}
+                    mdi:cloud-cancel
+                {% endif %}
+            
+         -  name: "Pifire Mode"
+            unique_id: pifire_mode
+            state: "{{ state_attr('sensor.current_status', 'mode') }}"
+            icon: |
+                {% if is_state('sensor.pifire_mode', 'Stop') %}
+                    mdi:close-octagon 
+                {% elif is_state('sensor.pifire_mode', 'Startup') %}
+                    mdi:clock-start
+                {% elif is_state('sensor.pifire_mode', 'Smoke') %}
+                    mdi:cloud-plus
+                {% elif is_state('sensor.pifire_mode', 'Hold') %}
+                    mdi:car-brake-hold
+                {% elif is_state('sensor.pifire_mode', 'Shutdown') %}
+                    mdi:power-plug-off
+                {% elif is_state('sensor.pifire_mode', 'Prime') %}
+                    mdi:waves-arrow-up
+                {% elif is_state('sensor.pifire_mode', 'Monitor') %}
+                    mdi:monitor-account
+                {% endif %}
+                
+         -  name: "Pellet Level"
+            unique_id: pelletlevel
+            unit_of_measurement: "%"
+            state: "{{ state_attr('sensor.current_status', 'pelletlevel') }}"
+            icon: |
+                {% if states('sensor.pelletlevel') < '100' %}
+                    mdi:battery-90
+                {% elif states('sensor.pelletlevel') < '90' and states('sensor.pelletlevel') >= '80' %}
+                    mdi:battery-80
+                {% elif states('sensor.pelletlevel') < '80' and states('sensor.pelletlevel') >= '70' %}
+                    mdi:battery-70
+                {% elif states('sensor.pelletlevel') < '70' and states('sensor.pelletlevel') >= '60' %}
+                    mdi:battery-60
+                {% elif states('sensor.pelletlevel') < '60' and states('sensor.pelletlevel') >= '50' %}
+                    mdi:battery-50
+                {% elif states('sensor.pelletlevel') < '50' and states('sensor.pelletlevel') >= '40' %}
+                    mdi:battery-40
+                {% elif states('sensor.pelletlevel') < '40' and states('sensor.pelletlevel') >= '30' %}
+                    mdi:battery-30
+                {% elif states('sensor.pelletlevel') < '30' and states('sensor.pelletlevel') >= '20' %}
+                    mdi:battery-20
+                {% elif states('sensor.pelletlevel') < '20' and states('sensor.pelletlevel') >= '10' %}
+                    mdi:battery-10
+                {% elif states('sensor.pelletlevel') < '10' %}
+                    mdi:battery-alert-variant-outline
+                {% endif %}
+
+         -  name: "Pellet Type"
+            unique_id: pellets
+            state: "{{ state_attr('sensor.current_status', 'pellets') }}"
+            icon: mdi:pine-tree
