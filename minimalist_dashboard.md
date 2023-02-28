@@ -137,3 +137,6 @@ cards:
       target:
         entity_id: input_select.prime_amount
 ```
+## How it looks on iPhone:
+
+![Current Grill mini Iphone](./photos/miniiphone.jpg) 
