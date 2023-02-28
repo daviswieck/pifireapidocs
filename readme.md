@@ -29,6 +29,13 @@ Restart you HA instance and confirm your sensors have been properly created
 Create the automations included in the ![Automations](./automations.md) folder
 
 ## Fifth
+Make a new Dashboard and include either:
+
+![Expanded View](./dashboard.md)
+
+![Minimalist View](./minimalist_dashboard.md)
+
+## Sixth
 Test everything to make sure it works!
 
 # API Info and States
