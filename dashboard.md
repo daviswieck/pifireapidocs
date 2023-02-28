@@ -191,3 +191,8 @@ cards:
       target:
         entity_id: input_select.grill_temp_setpoint
 ```
+## How it looks on iPhone:
+
+![Current Grill iPhone](./photos/currentiphone.jpg) 
+
+![Control Grill iPhone](./photos/controliphone.jpg) 
