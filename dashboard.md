@@ -3,11 +3,11 @@ The goal is to eventually have a custom lovelace card to display the sensor's in
 
 Current Info:
 
-![Current Grill](./currentgrill.jpg) 
+![Current Grill](./photos/currentgrill.jpg) 
 
 Control Board:
 
-![Control Board](./controlgrill.png) 
+![Control Board](./photos/controlgrill.png) 
 
 
 When a game is ongoing:
