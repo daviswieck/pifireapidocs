@@ -1,3 +1,5 @@
+# Import Pifire Data in Home Assistant
+
 # Beginning Steps
 ## First
 I recommend adding a packages folder in your HA config folder to keep your main yaml as clean as possible. I did this under the "File editor". 
