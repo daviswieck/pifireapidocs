@@ -1,3 +1,29 @@
+# Beginning Steps
+## First
+I recommend adding a packages folder in your HA config folder to keep your main yaml as clean as possible. I did this under the "File editor". 
+Create the folder then add the following to your configuration.yaml
+```
+homeassistant: 
+    packages: !include_dir_named packages
+```
+## Second
+Click on Settings->Devices & Services->Helpers(on the top tab)
+
+Create the helpers included in the ./helpers.md folder
+
+## Third
+Go back to File editor, navigate to your packages folder, and create the following two yaml's
+
+pifire.yaml
+
+pifire_control.yaml
+
+Restart you HA instance and confirm your sensors have been properly created
+
+## Fourth
+Create the automations included in the ./automations.md folder
+
+# API Info and States
 ### State
 This is set in the "value_template:" yaml line. It can be anything you want. I like to set it as the current temperature of the grill. 
 
