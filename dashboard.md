@@ -71,6 +71,55 @@ cards:
 
 ![Control Board](./photos/controlgrill.jpg) 
 
+These controls work off each other. 
+
+### Prime Amount
+Icon tap action: Fire a command to Prime Only
+
+Tap action will cycle through Priming Amount
+
+
+### Start Smoke Mode
+Icon tap action: Fire a command to start Smoke Mode and set temp to whatever is shown in Bottom Right Tile
+
+Tap action: Nothing
+
+### Grill Stop
+Icon tap action: Fire a command to Stop grill immediately
+
+Tap action: Nothing
+
+### Prime and Start
+Icon tap action: Fire a command to Prime and then Startup
+
+Tap action: Cycle through Priming Amount
+
+### Smoke Plus
+Icon tap action: Fire a command to turn Smoke Plus on
+
+Tap action: Fire a command to turn Smoke Plus off
+
+### Grill Shutdown
+Icon tap action: Fire a command to Shutdown the grill
+
+Tap action: Nothing
+
+### Grill Startup
+Icon tap action: Fire a command to Startup the grill and set temp to what is shown on Bottom Right Tile
+
+Tap action: Nothing
+
+### Hold Grill
+Icon tap action: Fire a command to Hold the grill and set temp to what is shown on Bottom Right Tile
+
+Tap action: Nothing
+
+### Set Temp and
+Icon tap action: Nothing
+
+Tap action: Cycle through temps
+
+
 Configuration for Control Card
 ```
 ### Control Cluster
