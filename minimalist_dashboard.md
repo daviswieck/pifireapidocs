@@ -69,6 +69,28 @@ cards:
 
 ![Control Board](./photos/minicontrol.jpg) 
 
+These controls work off each other. 
+
+### Set Temp/Hold
+Tap action will cycle through the temperatures
+
+Icon tap action will fire a command to set and hold the temp at whichever temp is shown on the tile.
+
+### Set Mode and Temp
+Tap action will cycle through the Grill Modes
+
+Icon tap action will fire a command to change the mode to whichever is shown, and change the temperature to whatever temp is shown in the first tile. Prime mode will follow up with Startup everytime. 
+
+### Smoke Plus
+Tap action will turn Smoke Plus off
+
+Icon tap action will turn Smoke Plus on
+
+### Prime Amount
+Tap action will cycle through Priming Amount
+
+Icon tap action will fire a command to Prime Only
+
 Configuration for Control Card
 ```
 square: true
