@@ -3,7 +3,7 @@ The goal is to eventually have a custom lovelace card to display the sensor's in
 
 ## Current Info:
 
-![Current Grill](./photos/currentgrill.jpg) 
+![Current Grill](./photos/minicurrent.jpg) 
 
 Configuration for Current Card
 ```
@@ -67,7 +67,7 @@ cards:
 
 ## Control Board:
 
-![Control Board](./photos/controlgrill.jpg) 
+![Control Board](./photos/minicontrol.jpg) 
 
 Configuration for Control Card
 ```
