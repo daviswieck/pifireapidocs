@@ -1,4 +1,5 @@
 # Import Pifire Data in Home Assistant
+Eventually I would like to make this a blueprint and make this a seamless integration, but for now this will have to do. 
 
 # Beginning Steps
 ## First
@@ -26,6 +27,9 @@ Restart you HA instance and confirm your sensors have been properly created
 
 ## Fourth
 Create the automations included in the ![Automations](./automations.md) folder
+
+## Fifth
+Test everything to make sure it works!
 
 # API Info and States
 ### State
