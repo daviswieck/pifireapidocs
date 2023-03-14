@@ -3,7 +3,7 @@
 ### Import Data ###
 rest: 
 ### CURRENT INFO ###
-  - resource: http://192.168.11.157/api/current
+  - resource: http://YOURIP/api/current
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Current Temperature"
@@ -37,7 +37,7 @@ rest:
          - "units"
 
 ### CONTROL INFO ###
-  - resource: http://192.168.11.157/api/control
+  - resource: http://YOURIP/api/control
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Control"
@@ -72,7 +72,7 @@ rest:
          - "units_change"
          - "updated"
 ### SETTINGS INFO ###
-  - resource: http://192.168.11.157/api/settings
+  - resource: http://YOURIP/api/settings
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Settings"
@@ -112,19 +112,34 @@ template:
   - sensor: 
          -  name: "Grill Temp"
             unique_id: grill_temp
-            state: "{{ state_attr('sensor.current_temperature', 'grill_temp') }}"
+            state: |
+                {% if is_state('sensor.current_temperature', 'unknown') or is_state('sensor.current_temperature', 'unavailable')  %}
+                    0
+                {% else %}
+                    {{ state_attr('sensor.current_temperature', 'grill_temp') | float }}
+                {% endif %}
             device_class: temperature
             unit_of_measurement: °F
-  - sensor: 
+ 
          -  name: "Probe 1 Temp"
             unique_id: probe1_temp
-            state: "{{ state_attr('sensor.current_temperature', 'probe1_temp') }}"
+            state: |
+                {% if is_state('sensor.current_temperature', 'unknown') or is_state('sensor.current_temperature', 'unavailable')  %}
+                    0
+                {% else %}
+                    {{ state_attr('sensor.current_temperature', 'probe1_temp') | float }}
+                {% endif %}
             unit_of_measurement: °F
             device_class: temperature
 
          -  name: "Probe 2 Temp"
             unique_id: probe2_temp
-            state: "{{ state_attr('sensor.current_temperature', 'probe2_temp') }}"
+            state: |
+                {% if is_state('sensor.current_temperature', 'unknown') or is_state('sensor.current_temperature', 'unavailable')  %}
+                    0
+                {% else %}
+                    {{ state_attr('sensor.current_temperature', 'probe2_temp') | float }}
+                {% endif %}
             unit_of_measurement: °F
             device_class: temperature
 
