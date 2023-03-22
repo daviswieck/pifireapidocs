@@ -5,5 +5,5 @@
     "documentation": "https://github.com/daviswieck/pifireapidocs",
     "issue_tracker": "https://github.com/daviswieck/pifireapidocs/issues",
     "dependencies": [],
-    "codeowners": ["@gopher_dave"],
+    "codeowners": ["@gopher_dave"]
   }
