@@ -1,3 +1,6 @@
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+
+
 # Import Pifire Data in Home Assistant
 Eventually I would like to make this a blueprint and make this a seamless integration, but for now this will have to do. 
 
