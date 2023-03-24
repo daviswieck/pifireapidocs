@@ -3,7 +3,7 @@
 ### Import Data ###
 rest: 
 ### CURRENT INFO ###
-  - resource: http://YOURIP/api/current
+  - resource: http://pifire.local/api/current
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Current Temperature"
@@ -37,7 +37,7 @@ rest:
          - "units"
 
 ### CONTROL INFO ###
-  - resource: http://YOURIP/api/control
+  - resource: http://pifire.local/api/control
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Control"
@@ -72,7 +72,7 @@ rest:
          - "units_change"
          - "updated"
 ### SETTINGS INFO ###
-  - resource: http://YOURIP/api/settings
+  - resource: http://pifire.local/api/settings
     scan_interval: 3600  # this is updated with an automation using homeassistant entity update instead
     sensor: 
       - name: "Settings"
